@@ -22,7 +22,7 @@ return new class extends Migration
 
         Schema::create('example_categories', function (Blueprint $table) {
             $table->id();
-            $table->integer("category_name");
+            $table->string("category_name");
             $table->timestamps();
         });
 

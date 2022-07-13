@@ -45,7 +45,7 @@ For Backend API navigate to [http://localhost:8080](http://localhost:8080) and y
 Lumen (8.3.4) (Laravel Components ^8.0)
 ```
 
-Success! You can now start developing your Lumen app on your host machine and you should see your changes on refresh! Classic PHP development cycle. A good place to start is `images/php/app/routes/web.php`.
+Success! You can now start developing your Lumen app on your host machine and you should see your changes on refresh! Classic PHP development cycle. A good place to start is `source/backend/routes/web.php`.
 
 ## 5. Connect to the database
 
@@ -91,3 +91,7 @@ http://localhost:8080/Example/data
 #### - Create a slice to fetch data from the above URL.
 
 #### - Make a component that will display these results using JSX.
+
+## Contribute
+
+Submit a Pull Request!
