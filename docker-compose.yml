@@ -1,0 +1,54 @@
+version: "3.7"
+
+services:
+  db:
+    restart: always
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    volumes:
+      - mssql_data:/var/opt/mssql/data
+    environment:
+      - SA_PASSWORD=Pass@word
+      - ACCEPT_EULA=Y
+    ports:
+      - "21433:1433"
+    expose:
+      - 21433
+    networks:
+      - default
+
+  api:
+    build:
+      context: ./source/backend
+    restart: always
+    volumes:
+      - "./source/backend:/app"
+      - "/app/vendor/"
+    command: php -S 0.0.0.0:8080 public/index.php
+    ports:
+        - "8080:8080"
+    networks:
+      - default
+
+  frontend:
+    restart: always
+    stdin_open: true
+    build:
+      context: ./source/frontend
+      args:
+        BUILD: "dev"
+    command: "npm start"
+    volumes:
+      - "./source/frontend:/app"
+      - "/app/node_modules"
+    ports:
+      - "3001:3000"
+    networks:
+      - default
+
+volumes:
+  mssql_data:
+
+networks:
+  default:
+    external:
+      name: gateway
