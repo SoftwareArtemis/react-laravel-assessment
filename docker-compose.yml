@@ -19,9 +19,10 @@ services:
   api:
     build:
       context: ./source/backend
+      dockerfile: Dockerfile
     restart: always
     volumes:
-      - "./source/backend:/app"
+      - "./source/backend:/app/backend"
       - "/app/vendor/"
     command: php -S 0.0.0.0:8080 public/index.php
     ports:
@@ -31,19 +32,23 @@ services:
 
   frontend:
     restart: always
+    tty: true
     stdin_open: true
     build:
       context: ./source/frontend
+      dockerfile: Dockerfile
       args:
         BUILD: "dev"
     command: "npm start"
     volumes:
-      - "./source/frontend:/app"
+      - "./source/frontend:/app/"
       - "/app/node_modules"
     ports:
       - "3001:3000"
     networks:
       - default
+    environment:
+      - WATCHPACK_POLLING=true
 
 volumes:
   mssql_data:
