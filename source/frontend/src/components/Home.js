@@ -1,15 +1,16 @@
-import React from 'react'
+import React from "react";
+import ExampleData from "./ExampleData";
 
-const Home = props => {
+const Home = (props) => {
   return (
     <>
       <header className="App-header">
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          <ExampleData />
         </p>
-       </header>
+      </header>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

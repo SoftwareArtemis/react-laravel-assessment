@@ -39,4 +39,9 @@ class ExampleModel extends Model
      * @var array
      */
     protected $casts = [];
+
+    public function exampleData(){
+        $exampleData = ExampleModel::take(20)->get();
+        return $exampleData;
+    }
 }
