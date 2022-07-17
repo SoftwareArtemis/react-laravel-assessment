@@ -19,9 +19,12 @@ class ExampleController extends Controller
 
     public function index(): \Illuminate\Http\JsonResponse
     {
+        $exampleData = new ExampleModel;
+        $exampleData = $exampleData->exampleData();
         // your code here
         return response()->json([
-            "success" => true,
+            "success" => true, 
+            "data" => $exampleData
         ]);
     }
 }
