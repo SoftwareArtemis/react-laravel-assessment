@@ -39,4 +39,17 @@ class ExampleModel extends Model
      * @var array
      */
     protected $casts = [];
+
+    /**
+     * Category relation.
+     */
+
+    protected $with = [
+        'category'
+    ];
+
+    public function category()
+    {
+        return $this->belongsToMany(ExampleCategoriesModel::class, 'example_data_categories', 'data_id', 'category_id');
+    }
 }
