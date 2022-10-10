@@ -1,21 +1,28 @@
 // ##### App Components #####
-import Home from './components/Home'
-import About from './components/About'
+import Home from "./components/Home";
+import About from "./components/About";
+import ExampleData from "./components/ExampleData";
 
 // Our route config is just an array of logical "routes"
 // with `path` and `component` props, ordered the same
 // way you'd do inside a `<Switch>`.
 const navConfig = [
   {
-    name: 'About us',
-    path: "/about",
-    component: About
+    name: "Example data",
+    path: "/data",
+    component: ExampleData,
   },
-  { //<-- default
-    name: 'Root',
+  {
+    name: "About us",
+    path: "/about",
+    component: About,
+  },
+  {
+    //<-- default
+    name: "Root",
     path: "/",
-    component: Home
-  }
-]
+    component: Home,
+  },
+];
 
-export default navConfig
+export default navConfig;
