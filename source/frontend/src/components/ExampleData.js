@@ -1,32 +1,42 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
+import { axiosReq } from "../api/axiosDefaults";
 
 const ExampleData = (props) => {
   const [exampleData, setExampleData] = useState([]);
 
   useEffect(() => {
-    try {
-      fetch("http://localhost:8080/Example/data", {
-        method: "GET",
-        mode: "cors",
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      }).then((response) => {
-        setExampleData(response.data.data);
-      });
-    } catch (err) {
-      console.log(err);
-    }
-  });
+    const fetchExampleData = async () => {
+      try {
+        axiosReq.get("http://localhost:8080/Example/data").then((response) => {
+          setExampleData(response.data.data);
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchExampleData();
+  }, []);
+
+  const dataList = exampleData.map((e) => (
+    <div key={e.id}>
+      <h4>Title: {e.title}</h4>
+      <p>Body: {e.body}</p>
+      <p>
+        Categories: <br />
+        {e.category.map((cat) => (
+          <span key={cat.id}>
+            {cat.category_name} <br />
+          </span>
+        ))}
+      </p>
+      <hr />
+    </div>
+  ));
 
   return (
     <div>
-      <h2>Data fetch results</h2>
-      <ul>
-        {exampleData.map((e) => (
-          <li key={e.id}>{e}</li>
-        ))}
-      </ul>
+      <h2>Example data results:</h2>
+      <div>{dataList}</div>
     </div>
   );
 };

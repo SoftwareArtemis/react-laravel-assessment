@@ -19,7 +19,7 @@ class ExampleController extends Controller
 
     public function index(): \Illuminate\Http\JsonResponse
     {
-        $examples = ExampleModel::paginate(50);
+        $examples = ExampleModel::take(50)->get();
         return response()->json([
             "success" => true,
             "data" => $examples,
