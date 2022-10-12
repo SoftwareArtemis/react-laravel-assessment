@@ -94,4 +94,6 @@ http://localhost:8080/Example/data
 
 ## Contribute
 
+Apply your chages in a branch of yours and so on
+
 Submit a Pull Request!
