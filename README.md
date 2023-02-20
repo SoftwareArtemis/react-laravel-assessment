@@ -68,7 +68,7 @@ or
 php artisan migrate
 php artisan db:seed
 ```
-## 6. Test the React application
+## 7. Test the React application
 
 For the Frontend navigate to [http://localhost:3001](http://localhost:3001) and you should see something like this
 ```sh
