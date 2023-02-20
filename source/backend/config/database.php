@@ -75,6 +75,7 @@ return [
             "password" => env("DB_PASSWORD", ""),
             "charset" => env("DB_CHARSET", "utf8"),
             "prefix" => env("DB_PREFIX", ""),
+            "trust_server_certificate" =>  "true"
         ],
     ],
 
