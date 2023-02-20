@@ -29,7 +29,7 @@ class SampleDataSeeder extends Seeder
             ]);
             // seeding 2 categories for each item
             if ($item) {
-                for ($i = 0; $i <= 1; $i++) {
+                for ($j = 0; $j <= 1; $j++) {
                     print ".";
                     $category = ExampleCategoriesModel::create([
                         "category_name" => $faker->word
