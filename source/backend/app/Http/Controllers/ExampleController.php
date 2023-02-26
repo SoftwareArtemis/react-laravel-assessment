@@ -19,9 +19,11 @@ class ExampleController extends Controller
 
     public function index(): \Illuminate\Http\JsonResponse
     {
-        // your code here
-        return response()->json([
-            "success" => true,
-        ]);
+        $myTable=ExampleModel::all();
+        return response()->json($myTable);
+
     }
+    
 }
+
+        
