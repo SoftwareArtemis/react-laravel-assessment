@@ -95,3 +95,8 @@ http://localhost:8080/Example/data
 ## Contribute
 
 Submit a Pull Request!
+
+```sh
+About pull requests
+[https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests]
+```
